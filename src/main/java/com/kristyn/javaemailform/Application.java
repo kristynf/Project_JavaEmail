@@ -46,7 +46,7 @@ public class Application implements CommandLineRunner {
     void sendEmail() {
 
         SimpleMailMessage msg = new SimpleMailMessage();
-        msg.setTo("1@gmail.com", "2@yahoo.com");
+        msg.setTo("mcjbcteamepic@gmail.com"); //add comma in between emails to send to multiple accounts
 
         msg.setSubject("Testing from Spring Boot");
         msg.setText("Hello World \n Spring Boot Email");
@@ -61,7 +61,7 @@ public class Application implements CommandLineRunner {
 
         // true = multipart message
         MimeMessageHelper helper = new MimeMessageHelper(msg, true);
-        helper.setTo("1@gmail.com");
+        helper.setTo("mcjbcteamepic@gmail.com");
 
         helper.setSubject("Testing from Spring Boot");
 
@@ -78,7 +78,7 @@ public class Application implements CommandLineRunner {
 
         //ResourceUtils.getFile("classpath:android.png");
 
-        helper.addAttachment("IMG_20200117_193318.jpg", new ClassPathResource("android.png"));
+        helper.addAttachment("android.png", new ClassPathResource("static/android.png"));
 
         javaMailSender.send(msg);
 
